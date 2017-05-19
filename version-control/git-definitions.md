@@ -10,3 +10,4 @@
 * A commit is a “change record”, it’s a command that enables your changes to be recorded after you’ve added (staged) them, and records this action with a unique ID, the author and the time stamp so to build a log of the changes and keep track of how the program evolves. A good commit message is a very condensed summer of what you have done up to this point in imperative form.
 * What is a merge conflict?
 * It occurs when trying to merge branches that have diverged, or in other words, have disagreeing changes so git doesn’t know how to properly digest the changes and you have to help Git decide what to do.
+
