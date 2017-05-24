@@ -46,3 +46,9 @@ body { width: max-width; }
   vertical-align: text-top;
 }
 
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+
