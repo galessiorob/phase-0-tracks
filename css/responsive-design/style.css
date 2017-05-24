@@ -28,7 +28,7 @@ figure {
 
 figcaption {
   font-style: italic;
-  text-align: right;
+  text-align: center;
 }
 
 body { width: max-width; }
@@ -52,3 +52,21 @@ body { width: max-width; }
   }
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #external-link, #content {
+      display: inline-block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 480px) {
+  #external-links {width: 200px;
+    float: left;}
+  #content {margin-left: 216px;}
+}
+
+@media (min-width: 700px) and (orientation: landscape) {
+  body {margin-left: 20px;
+    width: max-width;}
+}
