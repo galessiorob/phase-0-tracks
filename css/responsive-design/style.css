@@ -31,7 +31,8 @@ figcaption {
   text-align: center;
 }
 
-body { width: max-width; }
+body { width: max-width;
+align-content: center; }
 
 #content {
   width: 80%;
