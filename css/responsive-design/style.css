@@ -1,7 +1,7 @@
 blockquote {
   border-left: 5px solid blue;
-  padding: 15px;
-  margin-left: 0px;
+  padding: 20px;
+  margin-left: 1px;
 }
 
 cite {
@@ -11,11 +11,11 @@ cite {
 
 #external-links ul {
   list-style-type: none;
-  padding-left: 0px;
+  padding-left: 1px;
 }
 
 /* you're welcome to edit the
-image, figure, and figcaption CSS if you'd like, 
+image, figure, and figcaption CSS if you'd like,
 but it's optional! */
 img {
   width: 100%;
@@ -28,5 +28,46 @@ figure {
 
 figcaption {
   font-style: italic;
-  text-align: right;
+  text-align: center;
+}
+
+body { width: max-width;
+align-content: center; }
+
+#content {
+  width: 80%;
+  display: table-cell;
+  vertical-align: text-top;
+  }
+
+
+#external-links {
+  width: 20%;
+  display: table-cell;
+  vertical-align: text-top;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #external-link, #content {
+      display: inline-block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 480px) {
+  #external-links {width: 200px;
+    float: left;}
+  #content {margin-left: 216px;}
+}
+
+@media (min-width: 700px) and (orientation: landscape) {
+  body {margin-left: 20px;
+    width: max-width;}
 }
