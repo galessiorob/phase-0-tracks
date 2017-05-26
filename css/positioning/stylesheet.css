@@ -5,3 +5,9 @@
   color: #509983;
 }
 
+#hat{
+  padding: 10px;
+  position: relative;
+  top:30%;
+  left: 25%;
+}
