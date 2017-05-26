@@ -11,3 +11,12 @@
   top:30%;
   left: 25%;
 }
+
+#octopus{
+  position: absolute;
+  display: block;
+  margin: auto;
+  top:30%;
+  left: 32%;
+  z-index: -1;
+}
