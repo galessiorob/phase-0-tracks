@@ -20,3 +20,9 @@
   left: 32%;
   z-index: -1;
 }
+
+#glasses{
+  position: absolute;
+  top: 47%;
+  left: 39%
+}
