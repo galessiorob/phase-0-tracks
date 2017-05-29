@@ -1,0 +1,13 @@
+#Task: Using an elevator
+
+-Stand in front of the dial pad with the up and down buttons next to the elevator door.
+-Push the upper button (maybe labeled "up" or with an upward pointing arrow head)
+-Wait for the elevator to flash an upward pointing arrow or an "up" sign
+  -If the light flash comes from the down arrow or sign, don't get in
+-Once the doors open let people out first and get in
+-Press the button of the floor you want to go to:
+  -If you re going out, press "lobby", "L" or "1"
+  -If you want to go to your appartment, press 6 regardless of the initital floor you where at
+-If the door takes more than 15 seconds to close push the "close" button
+-As long as the elevator stops and opens the door while flashing signs that are not the same as the floor or lobby you want to go, remain on the elevator
+-If/When the elevator flashes the light corresponding to the floor you dialed, wait for the doors to open and exit
