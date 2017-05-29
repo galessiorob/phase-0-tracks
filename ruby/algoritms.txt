@@ -1,0 +1,38 @@
+#Task: Using an elevator
+
+-Stand in front of the dial pad with the up and down buttons next to the elevator door.
+-Push the upper button (maybe labeled "up" or with an upward pointing arrow head)
+-Wait for the elevator to flash an upward pointing arrow or an "up" sign
+  -If the light flash comes from the down arrow or sign, don't get in
+-Once the doors open let people out first and get in
+-Press the button of the floor you want to go to:
+  -If you re going out, press "lobby", "L" or "1"
+  -If you want to go to your appartment, press 6 regardless of the initital floor you where at
+-If the door takes more than 15 seconds to close push the "close" button
+-As long as the elevator stops and opens the door while flashing signs that are not the same as the floor or lobby you want to go, remain on the elevator
+-If/When the elevator flashes the light corresponding to the floor you dialed, wait for the doors to open and exit
+
+#Task: Making tea in the morning
+
+-Go to the kitchen area via the shortest way possible
+-Get the electric kettle on the counter to your left and take it to the sink
+-Open the kettle's top place under faucet
+-Open the tap to fill the kettle with water
+-When the water reaches the 3 cup mark on the water level window, close the tap
+-Close the kettle top and replace on the electric base on the counter
+-Check if base is connected to an outlet
+  -If it is connected, skip to next step
+  -If it's not connected, plug into outlet
+-Press the only buttton on the kettle's side
+-While the water is boiling
+  -Get a cup from the cupboard in front of you, place on counter
+  -Get a tea bag from tea box in front of you on the counter
+  -Open tea bag and place content inside the cup with the string hanging on the outside
+-Wait until the button makes a popping noise and returns to its original position
+-Grab the kettle by the handle and place beak hovering inside he cup
+-Tilt the kettle just enough so the water starts poring into the cup
+  -If water starts spilling down, re-align kettle to top and center of the cup's mouth
+-When the water reaches 4/5's of the cup's body stop pouring
+-Replace kettle on electric base
+-Wait three minutes for tea to steep
+-Now you can drink your tea
