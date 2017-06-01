@@ -65,9 +65,27 @@ end
 #p "afe"
 #puts decrypt("afe")
 
+#========================================
 #Nested Methods:
 #print "Tests for nested methods: "
 #puts (decrypt(encrypt("swordfish")))
 
 #The above methods work in opposite ways and can be "nested" or embeded into one another to help cancel out the effect of the inner method.
 
+#========================================
+#Pseudocode for adding an interface
+
+#Prompt user to enter the password they want to work with and then select if they want to decrypt or encrypt a password
+  #If they want to decrypt
+    #run decrypt method
+    #print decrypted password
+  #If they want to encrypt a password
+    #run encrypt method
+    #print encrypted password
+
+#========================================
+#Driver code
+
+#Greet user and ask which method they want to use
+puts "Hi! Please enter the password you want to work with"
+password = gets.chomp
