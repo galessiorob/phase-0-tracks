@@ -32,7 +32,7 @@ def encrypt(word)
   return new_word
 end
 
-puts encrypt("ab cdz")
+#puts encrypt("ab cdz")
 
 def decrypt (word)
   alphabets="abcdefghijklmnopqrstuvwxyz"
@@ -50,17 +50,24 @@ def decrypt (word)
   return new_word
 end
 
-puts decrypt("ab cdz")
+#puts decrypt("ab cdz")
 
-print "Tests for encrypt method"
+#print "Tests for encrypt method"
 
-p "abc"
-puts encrypt("abc")
-p "zed"
-puts encrypt("zed")
+#p "abc"
+#puts encrypt("abc")
+#p "zed"
+#puts encrypt("zed")
 
-print "Tests for decrypt method"
-p "bcd"
-puts decrypt("bcd")
-p "afe"
-puts decrypt("afe")
+#print "Tests for decrypt method"
+#p "bcd"
+#puts decrypt("bcd")
+#p "afe"
+#puts decrypt("afe")
+
+#Nested Methods:
+#print "Tests for nested methods: "
+#puts (decrypt(encrypt("swordfish")))
+
+#The above methods work in opposite ways and can be "nested" or embeded into one another to help cancel out the effect of the inner method.
+
