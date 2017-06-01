@@ -51,3 +51,16 @@ def decrypt (word)
 end
 
 puts decrypt("ab cdz")
+
+print "Tests for encrypt method"
+
+p "abc"
+puts encrypt("abc")
+p "zed"
+puts encrypt("zed")
+
+print "Tests for decrypt method"
+p "bcd"
+puts decrypt("bcd")
+p "afe"
+puts decrypt("afe")
