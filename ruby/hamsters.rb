@@ -6,6 +6,7 @@ username = []
 volumelevel = []
 furcolor =[]
 adoption = []
+adoptionb = []
 age = []
 
 #===================
@@ -55,17 +56,34 @@ end
 #Changing answers to boolean
 if
   adoption == ['Y','Yes','yes','y']
-  adoption == TRUE
+  adoptionb == TRUE
 else
   adoption == ['N','No','no','n']
-  adoption == FALSE
+  adoptionb == FALSE
 end
 
 
-puts "What is #{username}'s estimated age?"
+puts "What is #{username}'s estimated age in months?"
 age = gets.chomp
   if age.empty?
     age = nil
   else
     age = age.to_i
   end
+
+print "Thank you! You have just checked-in #{username} with the following data: \n
+  Name: #{username}\n
+  Volume Level: #{volumelevel}\n
+  Fur color: #{furcolor}\n"
+
+if age == nil
+  print "Age: NA"
+else
+  print "\n Age: #{age} months"
+end
+
+if adoptionb == TRUE
+  print "\n And #{username} is ready to be adopted"
+elsif adoptionb == FALSE
+  print "\n Unfortunately, #{username} can't be adopted yet."
+end
