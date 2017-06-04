@@ -65,7 +65,7 @@ employees = 0
 puts "How many employees do you want to interview? Please use numbers"
 employees = gets.to_i
 
-p i = employees - (employees-1)
+#p i = employees - (employees-1)
 
 until i == employees + 1
 
@@ -110,7 +110,7 @@ until i == employees + 1
   else
     p 'Not sure'
   end
-  print garlicbread
+  #print garlicbread
 
   puts "Would you like to enroll in the company's insurance? Yes or No?"
   case (insurance = gets.chomp)
@@ -121,7 +121,7 @@ until i == employees + 1
   else
     p 'Not sure'
   end
-  print insurance
+  #print insurance
 
   puts "Do you have any allergies? Please enter one at a time and type 'done' to record your answers"
   allergies = gets.chomp
