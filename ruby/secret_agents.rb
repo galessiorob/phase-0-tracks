@@ -89,3 +89,17 @@ end
 #Greet user and ask which method they want to use
 puts "Hi! Please enter the password you want to work with"
 password = gets.chomp
+
+puts "Do you want to encrypt(e) or decrypt(d) it? Type e to encrypt or d to decrypt:"
+action = gets.chomp
+
+if action == "e"
+  new_password = encrypt(password)
+  print "Your encrypted password id #{new_password}"
+else action == "d"
+  new_password = decrypt(password)
+  print "Your decrypted password id #{new_password}"
+end
+
+
+
