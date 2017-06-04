@@ -53,6 +53,7 @@ garlicbread = []
 garlicbreadb =[]
 insurance = []
 insuranceb = []
+vampireresult = []
 
 #==========================================
 #Driving Code
@@ -89,7 +90,7 @@ print garlicbread
 
 puts "Would you like to enroll in the company's insurance? Yes or No?"
 case (insurance = gets.chomp)
-when "Yes"
+when 'Yes'
   insurance = true
 when 'No'
   insurance = false
