@@ -43,4 +43,21 @@ garlicbread = gets.chomp
 puts "Would you like to enroll in the company's insurance? Yes or No?"
 insurance = gets.chomp
 
+#Variable tests
+p wolves_like_garlic && wolves_like_sunshine
+#true
+p wolves_like_garlic || vampires_like_garlic
+#true
+p wolves_like_garlic && vampires_like_garlic
+#false
+p wolves_like_garlic && (vampires_like_sunshine || vampires_like_garlic)
+#false
+p (wolves_like_garlic && vampires_like_garlic) || wolves_like_sunshine
+#true
+p vampires_like_garlic
+#false
+p !vampires_like_garlic
+#true
+p !(wolves_like_sunshine && wolves_like_garlic)
+#false
 
