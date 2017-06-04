@@ -55,73 +55,85 @@ insurance = []
 insuranceb = []
 vampireresult = []
 usernameb = []
+employees = []
 
 #==========================================
 #Driving Code
 
-puts "What's your name?"
-username = gets.chomp
-case username
-  when "Drake Cula"
-    usernameb = true
-  when "Tu Fang"
-    usernameb = true
+employees = 0
+puts "How many employees do you want to interview? Please use numbers"
+employees = gets.to_i
+
+p i = employees - (employees-1)
+
+until i == employees
+  puts "Cheking-in employee # #{i}: \n"
+  p i += 1
+
+  puts "What's your name?"
+  username = gets.chomp
+  case username
+    when "Drake Cula"
+      usernameb = true
+    when "Tu Fang"
+      usernameb = true
+    else
+      usernameb = false
+  end
+
+  #p usernameb
+
+  puts "How old are you in years?"
+  age = gets.to_i
+
+  puts "What year were you born?"
+  year = gets.to_i
+
+  realage = 2017 - age
+  agecheck =[]
+
+  if realage == year
+    agecheck = TRUE
   else
-    usernameb = false
-end
+    agecheck = FALSE
+  end
+  #p agecheck
 
-#p usernameb
-
-puts "How old are you in years?"
-age = gets.to_i
-
-puts "What year were you born?"
-year = gets.to_i
-
-realage = 2017 - age
-agecheck =[]
-
-if realage == year
-  agecheck = TRUE
-else
-  agecheck = FALSE
-end
-#p agecheck
-
-puts "Would you like to have some garlic bread? Yes or No?"
-case (garlicbread = gets.chomp)
-when 'Yes'
-  garlicbread = true
-when 'No'
-  garlicbread = false
-else
-  p 'Not sure'
-end
-print garlicbread
-
-puts "Would you like to enroll in the company's insurance? Yes or No?"
-case (insurance = gets.chomp)
-when 'Yes'
-  insurance = true
-when 'No'
-  insurance = false
-else
-  p 'Not sure'
-end
-print insurance
-
-case
-  when usernameb
-    p vampiresult = "Definitely a vampire."
-  when agecheck && (garlicbread || insurance)
-    p vampiresult = "Probably not a vampire"
-  when !(!agecheck && !(garlicbread || insurance))
-     p vampiresult = "Probably a vampire"
-  when (!agecheck && !garlicbread && !insurance)
-    p vampiresult = "Almost certainly a vampire."
+  puts "Would you like to have some garlic bread? Yes or No?"
+  case (garlicbread = gets.chomp)
+  when 'Yes'
+    garlicbread = true
+  when 'No'
+    garlicbread = false
   else
-    puts "Results inconclusive"
-end
+    p 'Not sure'
+  end
+  print garlicbread
 
+  puts "Would you like to enroll in the company's insurance? Yes or No?"
+  case (insurance = gets.chomp)
+  when 'Yes'
+    insurance = true
+  when 'No'
+    insurance = false
+  else
+    p 'Not sure'
+  end
+  print insurance
+
+  case
+    when usernameb
+      p vampiresult = "Definitely a vampire."
+    when agecheck && (garlicbread || insurance)
+      p vampiresult = "Probably not a vampire"
+    when !(!agecheck && !(garlicbread || insurance))
+       p vampiresult = "Probably a vampire"
+    when (!agecheck && !garlicbread && !insurance)
+      p vampiresult = "Almost certainly a vampire."
+    else
+      puts "Results inconclusive"
+  end
+
+end
 
 
