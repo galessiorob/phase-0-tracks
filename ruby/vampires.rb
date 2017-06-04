@@ -66,9 +66,10 @@ employees = gets.to_i
 
 p i = employees - (employees-1)
 
-until i == employees
-  puts "Cheking-in employee # #{i}: \n"
-  p i += 1
+until i == employees + 1
+
+  print "Checking-in employee number #{i} \n"
+  i += 1
 
   puts "What's your name?"
   username = gets.chomp
