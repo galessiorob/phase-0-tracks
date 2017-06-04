@@ -56,6 +56,7 @@ insuranceb = []
 vampireresult = []
 usernameb = []
 employees = []
+alergies = []
 
 #==========================================
 #Driving Code
@@ -122,19 +123,29 @@ until i == employees + 1
   end
   print insurance
 
-  case
-    when usernameb
-      p vampiresult = "Definitely a vampire."
-    when agecheck && (garlicbread || insurance)
-      p vampiresult = "Probably not a vampire"
-    when !(!agecheck && !(garlicbread || insurance))
-       p vampiresult = "Probably a vampire"
-    when (!agecheck && !garlicbread && !insurance)
-      p vampiresult = "Almost certainly a vampire."
-    else
-      puts "Results inconclusive"
+  puts "Do you have any allergies? Please enter one at a time and type 'done' to record your answers"
+  allergies = gets.chomp
+  until allergies.downcase == "done" || allergies.downcase == "sunshine"  do
+    allergies = gets.chomp!
   end
 
+if allergies == "sunshine"
+      puts "Probably a vampire."
+else
+    case
+      when usernameb
+        p vampiresult = "Definitely a vampire."
+      when agecheck && (garlicbread || insurance)
+        p vampiresult = "Probably not a vampire"
+      when !(!agecheck && !(garlicbread || insurance))
+         p vampiresult = "Probably a vampire"
+      when (!agecheck && !garlicbread && !insurance)
+        p vampiresult = "Almost certainly a vampire."
+      else
+        puts "Results inconclusive"
+    end
+  end
 end
 
+print "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
 
