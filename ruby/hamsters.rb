@@ -32,3 +32,40 @@ until volumelevel.between?(1,10) == TRUE
   print "Please enter a number from 1 to 10:"
   volumelevel = gets.to_i
 end
+
+puts "What's #{username}'s fur color?"
+furcolor = gets.chomp
+
+puts "Is #{username} a good candidate for adoption, yes or no?"
+adoption = gets.chomp
+#Forcing a non-empty answer
+while true
+  if adoption.empty?
+    puts "Please answer yes or no to available for adoption"
+    adoption = gets.chomp
+  else
+    break
+  end
+end
+#Forcing yes or no answers
+  until (['Y','Yes','yes','y','N','No','no','n']).include? adoption
+    puts "Please use yes or no to answer the question"
+    adoption = gets.chomp
+  end
+#Changing answers to boolean
+if
+  adoption == ['Y','Yes','yes','y']
+  adoption == TRUE
+else
+  adoption == ['N','No','no','n']
+  adoption == FALSE
+end
+
+
+puts "What is #{username}'s estimated age?"
+age = gets.chomp
+  if age.empty?
+    age = nil
+  else
+    age = age.to_i
+  end
