@@ -54,12 +54,23 @@ garlicbreadb =[]
 insurance = []
 insuranceb = []
 vampireresult = []
+usernameb = []
 
 #==========================================
 #Driving Code
 
 puts "What's your name?"
 username = gets.chomp
+case username
+  when "Drake Cula"
+    usernameb = true
+  when "Tu Fang"
+    usernameb = true
+  else
+    usernameb = false
+end
+
+#p usernameb
 
 puts "How old are you in years?"
 age = gets.to_i
@@ -99,6 +110,18 @@ else
 end
 print insurance
 
+case
+  when usernameb
+    p vampiresult = "Definitely a vampire."
+  when agecheck && (garlicbread || insurance)
+    p vampiresult = "Probably not a vampire"
+  when !(!agecheck && !(garlicbread || insurance))
+     p vampiresult = "Probably a vampire"
+  when (!agecheck && !garlicbread && !insurance)
+    p vampiresult = "Almost certainly a vampire."
+  else
+    puts "Results inconclusive"
+end
 
 
 
