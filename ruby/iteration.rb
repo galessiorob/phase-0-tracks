@@ -16,3 +16,11 @@ end
 husky.each do |traits,value|
   puts "A husky has a #{traits} that is #{value}."
 end
+
+puts dog_breeds
+
+dog_breeds.map! do |breed|
+  breed.capitalize
+end
+
+puts dog_breeds
