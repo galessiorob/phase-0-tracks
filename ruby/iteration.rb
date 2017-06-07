@@ -1,4 +1,3 @@
-=begin
 #5.3 Pairing
 #Release 1
 dog_breeds = ['collie','labrador','husky','spaniel']
@@ -75,7 +74,6 @@ hash_one.keep_if { |x,y| y%2 == 0}
 
 puts hash_one
 
-=end
 
 #3. Filtering if conditions are met
 
@@ -88,15 +86,41 @@ hash_one = {
   four: 4
 }
 
-puts array_one
+p array_one
+
+p array_one.select { |x| x > 3 }
+
+p array_one
+
+puts hash_one
+
+p hash_one.select { |x,y| y > 3}
+
+puts hash_one
+
+#4. Filtering data until a block evaluates to false
+
+array_one = [1,2,3,4,5,6]
+
+hash_one = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4
+}
+
+p array_one
 
 array_one.select! { |x| x > 3 }
 
-puts array_one
+p array_one
 
 puts hash_one
 
 hash_one.select! { |x,y| y > 3}
 
 puts hash_one
+
+
+
 
