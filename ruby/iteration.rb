@@ -12,3 +12,7 @@ husky = {
 dog_breeds.each do |dog|
   puts "I grew up with a #{dog}."
 end
+
+husky.each do |traits,value|
+  puts "A husky has a #{traits} that is #{value}."
+end
