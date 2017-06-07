@@ -9,3 +9,6 @@ husky = {
   color: "black and white"
 }
 
+dog_breeds.each do |dog|
+  puts "I grew up with a #{dog}."
+end
