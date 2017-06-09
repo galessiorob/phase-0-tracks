@@ -49,7 +49,30 @@ end
 
 fib(100)
 
+# Release 2: Sort an Array
+#Pseudocode for Bubble Sort
+#Add an array of random numbers
+#Start with the very first element:
+  # Organize first two neighbors in desceding order, advance one element and repeat until all elements in the array are sorted
 
 
+def bubble_sort(array)
+  n = array.length
+  loop do
+    swapped = false
 
+    (n-1).times do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i+1], array[i]
+        swapped = true
+      end
+    end
 
+    break if not swapped
+  end
+
+  array
+end
+
+a = [4, 7, 6, 8, 11, 20, 1, 2]
+p bubble_sort(a)
