@@ -33,22 +33,21 @@ fib_sequence = []
 #========
 #Driving code
 p "Please type the Fibonacci sequence element you want to get: "
-element = gets.chomp.to_i
+x = gets.chomp.to_i
 
-x = element - 2
+# x = element - 2
 
-fib_sequence = x.times.inject([0,1]) do |a, idx|
+def fib (x)
+  y = x-2
+fib_sequence = y.times.inject([0,1]) do |a, idx|
     a << a[-2] + a[-1]
 end
-
-p fib_sequence
+p "Last element of your sequence is #{fib_sequence.max}"
+end
 
 #Verify the last element of the sequence for 100 elements to be 218922995834555169026
 
-p fib_sequence.max
-
-#Re
-
+fib(100)
 
 
 
