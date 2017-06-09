@@ -12,5 +12,20 @@
 #===============================
 #Driving code
 
+arr = [ 42, 56, 78, 98, 5]
+
+def search_array (arr,number)
+  hash = {}
+  i = 0
+  arr.each do |n|
+    hash[i] = n
+    i +=1
+  end
+  hash.key(number)
+end
+
+p search_array(arr, 4)
+
+
 
 
