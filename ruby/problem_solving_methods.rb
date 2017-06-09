@@ -76,3 +76,6 @@ end
 
 a = [4, 7, 6, 8, 11, 20, 1, 2]
 p bubble_sort(a)
+p a.sort
+
+
