@@ -12,37 +12,50 @@
 #=============================================
 #Driving code
 
-# vowels = {
-#   'a' => 'e',
-#   'e' => 'i',
-#   'i' => 'o',
-#   'o' => 'u',
-#   'u' => 'a'
-# }
-
-consonants = ['bcdfghjklmnpqrstvwxyz']
-
 p "What's your real name?"
-p user_name = (gets.chomp).to_s
-p name1 = user_name.downcase
+user_name = (gets.chomp).to_s
+name1 = user_name.downcase
 
-# def spy_name(name1)
-#   for i in name1
-#     if i.in vowels = true
-# end
+#Swap vowels method:
 
-# VOWELS = %w(a e i o u)
 SWAP_V = ['a', 'e', 'i', 'o','u']
+#Add rotation to the array to handle edge cases (ie u => a)
 SWAP_VR = SWAP_V.rotate 1
 
-def vowel_adv(namestr)
-  namestr.each_char.with_index do |char, i|
-    index = SWAP_V.index char
+def vowel_swap(namestr)
+  namestr.each_char.with_index do |m, n|
+    index = SWAP_V.index m
     if index
-      namestr[i] = SWAP_VR[index]
+      namestr[n] = SWAP_VR[index]
     end
   end
   namestr
 end
 
-p vowel_adv(name1)
+ name2 = vowel_swap(name1)
+
+#Swap consonants method:
+
+#Use the %w to turn the consonants into an array of character strings separated by commas
+SWAP_C = %w(b c d f g h j k l m n p q r s t v w x y z)
+SWAP_CR = SWAP_C.rotate 1
+
+
+def cons_swap(namestr)
+  namestr.each_char.with_index do |m, n|
+    index = SWAP_C.index m
+    if index
+      namestr[n] = SWAP_CR[index]
+    end
+  end
+  namestr
+end
+
+ name3 = cons_swap(name2)
+
+#Capitalize name and last name again:
+puts "Your spy name is:"
+p spy_name = name3.split.map(&:capitalize).join(' ')
+
+
+
