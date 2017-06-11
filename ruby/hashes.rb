@@ -16,6 +16,7 @@ userinfo = {}
   # age:
   # children:
   # color:
+  # decor_theme:
   # authorization:
 
 #==============================================
@@ -33,6 +34,9 @@ userinfo[:children] = (gets.chomp).to_i
 puts "What's your favorite color?"
 userinfo[:color] = gets.chomp
 
+puts "What decor theme do you want?"
+userinfo[:decor_theme] = gets.chomp
+
 puts "Do you give your full authorization to access your house to take measures? Use True or False"
 userinfo[:authorization] = (gets.chomp).upcase
 if userinfo[:authorization] == "TRUE"
@@ -41,7 +45,19 @@ else
   userinfo[:authorization] = FALSE
 end
 
+puts "These are the current answers:"
 p userinfo
+
+puts "Would you like to make any changes? Use Yes or No"
+changes = gets.chomp
+
+if changes == "Yes"
+  puts "What answer would you like to change? Please use the right key."
+  p value_change = (gets.chomp).to_sym
+else
+  p "Okay"
+  end
+
 
 
 
