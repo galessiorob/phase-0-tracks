@@ -46,7 +46,7 @@ else
 end
 
 puts "These are the current answers:"
-p userinfo
+puts userinfo
 
 puts "Would you like to make any changes? Use Yes or No"
 changes = gets.chomp
@@ -54,9 +54,14 @@ changes = gets.chomp
 if changes == "Yes"
   puts "What answer would you like to change? Please use the right key."
   p value_change = (gets.chomp).to_sym
+  puts "Please type your new answer for #{value_change}"
+  p userinfo[value_change] = gets.chomp
 else
   p "Okay"
   end
+
+puts "These are your final answers:"
+puts userinfo
 
 
 
