@@ -4,10 +4,16 @@
 #==============================================
 #Pseudocode
 #Ask agent for name and save it as a string
-#Split the string
-  #Change the vowels to the next vowel
-  #Change the consonants to the next consonant in the alphabet
-#Join all the letters again
+#Standarize name in lower case to compare vowels and consonants
+#Swap vowels:
+  #Check each character of the string and match against set of vowels
+    #If match, swap for the following vowel
+    #If not, leave as is
+#Swap consonants:
+  #Check each caracter of the string amd match against set of consonants
+    #If match, swap for the following vowel
+    #If not, leave as is
+#Capitalize first letter of each word again
 
 #=============================================
 #Driving code
@@ -38,6 +44,7 @@ end
 
 #Use the %w to turn the consonants into an array of character strings separated by commas
 SWAP_C = %w(b c d f g h j k l m n p q r s t v w x y z)
+#Add rotation to handle edge cases
 SWAP_CR = SWAP_C.rotate 1
 
 
