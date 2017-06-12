@@ -17,6 +17,11 @@
 
 #=============================================
 #Driving code
+#Hash to store spy names:
+spy_base = {}
+continue = nil
+
+until continue == 'quit'
 
 p "What's your real name?"
 user_name = (gets.chomp).to_s
@@ -64,5 +69,17 @@ end
 puts "Your spy name is:"
 p spy_name = name3.split.map(&:capitalize).join(' ')
 
+#Store each real name and spy name in a hash:
+spy_base[user_name.to_sym] = spy_name
+
+puts "Do you want to get a new spy name? If so, just hit enter, if not just type quit"
+continue = gets.chomp
+end
+
+p spy_base
+
+spy_base.each do |key, value|
+    puts "#{key} is also known as #{value}"
+end
 
 
