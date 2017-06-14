@@ -33,9 +33,10 @@
 
 #===========================================
 
-def new_list (items)
+#Create new list
+def new_list (item)
   hash = {}
-  list = items.split(',')
+  list = item.split(',')
   list.each do |i|
     hash[i] = 1
   end
@@ -44,31 +45,36 @@ end
 
 x = new_list('carrots,apples,grapes')
 
-def add_item (list,new_item,quantity)
-  list[new_item] = quantity
-  p list
+
+#Add a new item or change the quatity of an existing one
+def add_item (list,item,quantity)
+  list[item] = quantity
 end
 
 add_item(x,'pears',2)
+add_item(x,'apples',10)
 
-def delete_item (list,del_item)
-  list.delete(del_item)
-  p list
+#Delete item from list
+def delete_item (list,item)
+  list.delete(item)
 end
 
 delete_item(x,'pears')
 
-def new_quantity (list,item,new_quant)
-  list[item] = new_quant
-  p list
-end
-
-new_quantity(x,'apples',10)
 
 def print_list (list)
-  list.each { |item,value| puts "#{item} buy #{value}" }
+  list.each { |item,quantity| puts "#{item} buy #{quantity}" }
 end
 
 print_list(x)
 
 
+#========================================================
+# Refactoring notes
+
+#Deleted this method from driving code because method for adding a new item can be used for this purpose
+#Change the quantity of an item
+# def new_quantity (list,item,quantity)
+#   list[item] = quantity
+# end
+# new_quantity(x,'apples',10)
