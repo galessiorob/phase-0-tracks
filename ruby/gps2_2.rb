@@ -33,3 +33,13 @@
 
 #===========================================
 
+def new_list (items)
+  hash = {}
+  list = items.split(',')
+  list.each do |i|
+    hash[i] = 1
+  end
+  p hash
+end
+
+new_list('carrots,apples,grapes')
