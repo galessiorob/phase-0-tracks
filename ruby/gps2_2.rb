@@ -42,4 +42,27 @@ def new_list (items)
   p hash
 end
 
-new_list('carrots,apples,grapes')
+x = new_list('carrots,apples,grapes')
+
+def add_item (list,new_item,quantity)
+  list[new_item] = quantity
+  p list
+end
+
+add_item(x,'pears',2)
+
+def delete_item (list,del_item)
+  list.delete(del_item)
+  p list
+end
+
+delete_item(x,'pears')
+
+def new_quantity (list,item,new_quant)
+  list[item] = new_quant
+  p list
+end
+
+new_quantity(x,'apples',10)
+
+
