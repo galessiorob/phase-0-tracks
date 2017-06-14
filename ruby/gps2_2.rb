@@ -65,4 +65,10 @@ end
 
 new_quantity(x,'apples',10)
 
+def print_list (list)
+  list.each { |item,value| puts "#{item} buy #{value}" }
+end
+
+print_list(x)
+
 
