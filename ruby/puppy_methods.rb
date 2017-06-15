@@ -1,17 +1,5 @@
 class Puppy
 
-  def fetch(toy)
-    puts "I brought back the #{toy}!"
-    toy
-  end
-
-end
-
-#==================================================
-#Driving code
-
-class Puppy
-
  def fetch(toy)
     puts "I brought back the #{toy}!"
     toy
@@ -40,12 +28,6 @@ class Puppy
 
 end
 
-# Puppy.new.fetch("ball")
-# Puppy.new.speak(3)
-# Puppy.new.roll_over
-# Puppy.new.dog_years(5)
-# Puppy.new.plays_dead(3)
-
 class Clown
 
  def juggles(int)
@@ -61,6 +43,19 @@ class Clown
   end
 
 end
+
+#==================================================
+#Driving code
+
+#Puppy class tests
+# Puppy.new.fetch("ball")
+# Puppy.new.speak(3)
+# Puppy.new.roll_over
+# Puppy.new.dog_years(5)
+# Puppy.new.plays_dead(3)
+
+
+#Clown class tests
 
 p Clown.new.juggles(3)
 p Clown.new.joke("Gabby")
