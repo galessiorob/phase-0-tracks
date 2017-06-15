@@ -7,3 +7,8 @@ class Puppy
 
 end
 
+#==================================================
+#Driving code
+
+Puppy.new.fetch('ball')
+
