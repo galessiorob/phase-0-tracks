@@ -10,7 +10,6 @@ class Santa
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
   end
 
-
   def speak
     p "Ho, ho, ho! Haaaappy holidays!"
   end
@@ -63,7 +62,6 @@ santas = santa_maker(100)
 
 # santa.gender = 'fluid'
 # p "New gender for santa is #{santa.gender}"
-
 
 
 #==============================================
