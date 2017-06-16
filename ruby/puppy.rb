@@ -1,7 +1,5 @@
 #6.1 Introduction to classes
 
-#Release 0
-
 # CLASS ------------------------
 # Puppy
 
@@ -19,3 +17,19 @@
 # Fetch
 # Roll Over
 # Play dead
+
+#================================================
+
+class Puppy
+end
+
+#New instances
+duchess = Puppy.new
+fido = Puppy.new
+spot = Puppy.new
+
+p spot.class
+p duchess == fido
+p fido.instance_of?(Array)
+p fido.instance_of?(Puppy)
+p spot.play_dead
