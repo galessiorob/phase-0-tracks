@@ -13,3 +13,11 @@ class Santa
   end
 
 end
+
+#==============================================
+#Driving code
+
+Santa.new.speak
+
+Santa.new.eat_milk_and_cookies("snickerdoodle")
+
