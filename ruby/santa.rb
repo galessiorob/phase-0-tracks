@@ -3,7 +3,7 @@ class Santa
   attr_accessor :age, :gender, :ethnicity
 
  def initialize(gender,ethnicity)
-    p "Initializing Santa instance ..."
+     "Initializing Santa instance ..."
     @gender = gender
     @ethnicity = ethnicity
     @age = 0
@@ -19,7 +19,62 @@ class Santa
     p "That was a good #{cookie}!"
   end
 
-# #Getter methods
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at=(bad_reindeer)
+    @reindeer_ranking.delete(bad_reindeer)
+    @reindeer_ranking.push(bad_reindeer)
+  end
+
+end
+
+#Santa Maker
+
+def santa_maker(num_of_santas)
+
+example_gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+
+example_ethnicity = ['Greek','Grenadian','Guatemalan','Guinea-Bissauan','Guinean','Guyanese','Haitian','Herzegovinian','Honduran','Hungarian','I-Kiribati','Icelander','Indian','Indonesian','Iranian','Iraqi','Irish','Israeli']
+
+num_of_santas.times do
+  new_santa = Santa.new(example_gender.sample,example_ethnicity.sample)
+  new_santa_age = new_santa.age = rand(0..141) + 0
+  puts "This Santa is a #{new_santa.age} year old #{new_santa.gender} #{new_santa.ethnicity} "
+end
+end
+
+#==============================================
+#Driving code
+
+santas = santa_maker(100)
+
+#Attribute changing methods
+# santa = Santa.new('female','latino')
+# p "This Santa is a #{santa.gender} #{santa.ethnicity}"
+
+# santa.celebrate_birthday
+# p "New age for santa is #{santa.age}"
+
+# santa.get_mad_at = 'Vixen'
+# p 'This is the current raking of his favorite reindeers'
+# puts santa.reindeer_ranking
+
+# santa.gender = 'fluid'
+# p "New gender for santa is #{santa.gender}"
+
+
+
+#==============================================
+#Previous code
+
+#Class tests
+#Santa.new('f','latino')
+# Santa.new.speak
+# Santa.new.eat_milk_and_cookies("snickerdoodle")
+
+#Getter methods
 #   def age
 #     @age
 #   end
@@ -35,29 +90,6 @@ class Santa
 #   def gender
 #     @gender
 #   end
-
-
-#Setter methods
-  def celebrate_birthday
-    @age += 1
-  end
-
-  def get_mad_at=(bad_reindeer)
-    @reindeer_ranking.delete(bad_reindeer)
-    @reindeer_ranking.push(bad_reindeer)
-  end
-
-end
-
-#==============================================
-#Driving code
-
-# Santa.new.speak
-# Santa.new.eat_milk_and_cookies("snickerdoodle")
-
-#Add attributes
-# santa = Santa.new('f','latino')
-# santa.reindeer_ranking
 
 #Add more instance examples
 # santas = []
@@ -76,18 +108,3 @@ end
 # example_genders.length.times do |i|
 #   santas << Santa.new(example_genders[i], example_ethnicities[i])
 # end
-
-#Attribute changing methods
-santa = Santa.new('female','latino')
-p "This Santa is a #{santa.gender} #{santa.ethnicity}"
-
-santa.celebrate_birthday
-p "New age for santa is #{santa.age}"
-
-santa.get_mad_at = 'Vixen'
-p 'This is the current raking of his favorite reindeers'
-puts santa.reindeer_ranking
-
-santa.gender = 'fluid'
-p "New gender for santa is #{santa.gender}"
-
