@@ -80,13 +80,14 @@ end
 # end
 
 #Attribute changing methods
-santa = Santa.new('f','latino')
+santa = Santa.new('female','latino')
+p "This Santa is a #{santa.gender} #{santa.ethnicity}"
 
 santa.celebrate_birthday
 p "New age for santa is #{santa.age}"
 
 santa.get_mad_at = 'Vixen'
-p 'This is the current raking of favorite reindeers'
+p 'This is the current raking of his favorite reindeers'
 puts santa.reindeer_ranking
 
 santa.gender = 'fluid'
