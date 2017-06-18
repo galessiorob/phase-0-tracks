@@ -48,11 +48,7 @@ describe Word_game do
   it 'replaces letters in guess string if contained in guess word' do expect(word_game.guess_letter('u')). to eq '_u_____'
   end
 
-
-
-  # it 'replaces letters in guess string if contained in guess word' do expect(word_game.guess_letter('c')). to eq 'c__c___'
-  # end
-
-
+  it 'replaces letters in guess string if contained in guess word' do expect(word_game.guess_letter('c')). to eq 'c__c___'
+  end
 
 end

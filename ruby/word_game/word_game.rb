@@ -35,7 +35,7 @@ attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed
 
 def guess_letter(letter)
     if @letters_guessed.index(letter) != nil
-        p 'You have already guessed with #{letter}, this does not count as a try'
+        puts 'You have already guessed with #{letter}, this does not count as a try'
         p @answer
     elsif @word.include?(letter)
       guess_index = word_index(letter)
@@ -45,14 +45,14 @@ def guess_letter(letter)
       @letters_guessed << letter
       @guess_counter += 1
       p @answer
-      p "You have #{@guesses - @guess_counter} guesses left"
+      puts "You have #{@guesses - @guess_counter} guesses left"
       state
     elsif !@word.include?(letter)
       #@game_over = false
       @guess_counter += 1
       p @answer
-      p "The letter #{letter} is not in the word."
-      p "You have #{@guesses - @guess_counter} guesses left"
+      puts "The letter #{letter} is not in the word."
+      puts "You have #{@guesses - @guess_counter} guesses left"
       @letters_guessed << letter
       state
     end
@@ -71,21 +71,11 @@ def state
   end
 end
 
-class Users
-  attr_accessor :user_1, :user_2, :name
-
-  def initialize(name)
-    @name = name
-  end
-end
-
-
 #================================================
-#UI Code
+#Driver Code
 
 puts "Welcome to -The Word Guesser- game! Please type the name of the player to guess the word"
 user_1 = gets.chomp
-#User.name check if I can user later
 puts "Please type the name of the player setting the hidden word"
 user_2 = gets.chomp
 
