@@ -1,5 +1,5 @@
 class Word_game
-attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed
+attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed, :word_index
 
   def initialize
     @word = 'cupcake'
@@ -7,8 +7,7 @@ attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed
     @guesses = 1
     @word_letters = []
     @letters_guessed = []
-    @guess_count = 0
-    @guesses = 1
+    @guess_counter = 0
     @game_over = false
   end
 
@@ -35,46 +34,30 @@ attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed
   end
 
 def guess_letter(letter)
-  @word = 'cupcake'
-  @answer = '_______'
-  @letters_guessed = []
-    if @word.include?(letter)
-      guess_index = [1]
+    if @letters_guessed.index(letter) != nil
+        p 'You have already guessed with #{letter}, this does not count as a try'
+        p @answer
+    elsif @word.include?(letter)
+      guess_index = word_index(letter)
       guess_index.each do |i|
         @answer[i] = letter
       end
-      guess_count = 1
-     # p "You have #{@guesses - @guess_count} guesses left"
       @letters_guessed << letter
+      @guess_counter += 1
+      p "You have #{@guesses - @guess_counter} guesses left"
       #check_status
-    else !@word.include?(letter)
+    elsif !@word.include?(letter)
       #@game_over = false
-      guess_count = 1
+      @guess_counter += 1
       p "The letter #{letter} is not in the word."
-      #p "You have guessed #{@guess_count} times out of #{@guesses} total alloted guesses."
+      p "You have #{@guesses - @guess_counter} guesses left"
       @letters_guessed << letter
       #check_status
     end
     @answer
   end
-  # def guess_letter(letter)
-  #   if @word.include?(letter)
-  #     guess_index = word_index(letter)
-  #     guess_index.each do |i|
-  #       @answer[i] = letter
-  #     end
-  #     @guess_count += 1
-  #    # p "You have #{@guesses - @guess_count} guesses left"
-  #     @letters_guessed << letter
-  #     #check_status
-  #   else !@word.include?(letter)
-  #     #@game_over = false
-  #     @guess_count += 1
-  #     p "The letter #{letter} is not in the word."
-  #     #p "You have guessed #{@guess_count} times out of #{@guesses} total alloted guesses."
-  #     @letters_guessed << letter
-  #     #check_status
-  #   end
+
+
 
 
 
