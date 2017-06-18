@@ -1,5 +1,5 @@
 class Word_game
-attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed, :word_index
+attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed, :word_index, :game_over
 
   def initialize
     @word = ""
@@ -44,11 +44,13 @@ def guess_letter(letter)
       end
       @letters_guessed << letter
       @guess_counter += 1
+      p @answer
       p "You have #{@guesses - @guess_counter} guesses left"
       state
     elsif !@word.include?(letter)
       #@game_over = false
       @guess_counter += 1
+      p @answer
       p "The letter #{letter} is not in the word."
       p "You have #{@guesses - @guess_counter} guesses left"
       @letters_guessed << letter
@@ -60,7 +62,8 @@ def guess_letter(letter)
 def state
     if @answer == @word
       @game_over = true
-      p "You guessed it!\n The hidden word is #{@word}! Great job!"
+      puts "You guessed it!"
+      puts "The hidden word is #{@word}! Great job!"
     elsif @guess_counter >= @guesses
       @game_over = true
       p "You have used all your chances, the hidden word was #{@word}. Better luck next time!"
@@ -89,8 +92,18 @@ user_2 = gets.chomp
 puts "Okay #{user_2}, please tell #{user_1} to look away from the screen and type the word to be guessed:"
 user_2_word = gets.chomp
 
-game = Word_game
+game = Word_game.new
 hidden_word = game.guess_word(user_2_word)
+
+puts "You can start guessing letter by letter to fill in the blanks"
+p hidden_word
+until game.game_over == true
+  puts "Type the letter you want to guess"
+  letter = gets.chomp.downcase
+  hidden_word = game.guess_letter(letter)
+end
+
+
 
 
 
