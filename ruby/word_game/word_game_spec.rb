@@ -33,7 +33,7 @@ describe Word_game do
   let(:word_game) { Word_game.new }
 
  it "asks user 1 for a word" do
-    expect(word_game.guess_word("Cupcake")).to eq "cupcake"
+    expect(word_game.guess_word("Cupcake")).to eq 'cupcake'
   end
 
   it "makes a string of underscores of the same length as the word" do
@@ -43,6 +43,16 @@ describe Word_game do
   it "takes the word's length and adds 3" do expect(word_game.guess_number("cupcake")).to eq 10
   end
 
-  it "takes user's 2 input for first guess and checks if it matches the cracters in the guess word" do expect(word_game.guess_try('cupcake','u')).to eq true
+  it 'gives each letter in the word an index to later substitute with right guesses' do
+    expect(word_game.word_index("cupcake","u")).to eq [1]
   end
+
+  # it "takes user's 2 input for first guess and checks if it matches the cracters in the guess word" do
+  #   expect(word_game.guess_try('cupcake','u')).to eq true
+  # end
+
+  # it "replaces underscores in the guess string with matching characters" do
+  #   expect(word_game.guess_sub(word,guess)). to eq 'c__c___'
+  # end
+
 end
