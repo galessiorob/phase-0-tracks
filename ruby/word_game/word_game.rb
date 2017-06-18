@@ -13,7 +13,7 @@ attr_accessor  :word, :word_letters, :answer, :guesses, :guess, :letters_guessed
 
 
   def guess_word(x)
-    #@word = x.downcase
+    @word = x.downcase
     @answer = '_' * (word.length)
     if word.length > 10
       @guesses = 5 + (word.length)
@@ -81,12 +81,18 @@ end
 #UI Code
 
 puts "Welcome to -The Word Guesser- game! Please type the name of the player to guess the word"
-name_1 = gets.chomp
-user_1 = User.name(name_1)
-
+user_1 = gets.chomp
+#User.name check if I can user later
 puts "Please type the name of the player setting the hidden word"
-name_2 = gets.chomp
-user_2 = User.name(name_2)
+user_2 = gets.chomp
+
+puts "Okay #{user_2}, please tell #{user_1} to look away from the screen and type the word to be guessed:"
+user_2_word = gets.chomp
+
+game = Word_game
+hidden_word = game.guess_word(user_2_word)
+
+
 
 
 
