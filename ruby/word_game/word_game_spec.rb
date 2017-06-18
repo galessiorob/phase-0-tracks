@@ -29,3 +29,6 @@
 
 require_relative 'word_game'
 
+describe Word_game do
+  let(:wordgame) { Word_game.new }
+end
