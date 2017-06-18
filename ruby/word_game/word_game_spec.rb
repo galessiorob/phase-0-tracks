@@ -36,24 +36,17 @@ describe Word_game do
     expect(word_game.guess_word("Cupcake")).to eq '_______'
   end
 
-  # it "makes a string of underscores of the same length as the word" do
-  #   expect(word_game.guess_string).to eq '_______'
-  # end
-
-  # it "takes the word's length and adds 3" do expect(word_game.guess_number("cupcake")).to eq 10
-  # end
-
-  # it 'gives each letter in the word an index to later substitute with right guesses' do
-  #   expect(word_game.word_index('cupcake','u')).to eq [1]
-  # end
+  it 'gives each letter in the word an index to later substitute with right guesses' do
+    expect(word_game.word_index('u')).to eq [1]
+  end
 
 
-  # it 'gives each letter in the word an index to later substitute with right guesses' do
-  #   expect(word_game.word_index('cupcake','c')).to eq [0,3]
-  # end
+  it 'gives each letter in the word an index to later substitute with right guesses' do
+    expect(word_game.word_index('c')).to eq [0,3]
+  end
 
-  # it 'replaces letters in guess string if contained in guess word' do expect(word_game.guess_letter('c')). to eq 'c__c___'
-  # end
+  it 'replaces letters in guess string if contained in guess word' do expect(word_game.guess_letter('u')). to eq '_u_____'
+  end
 
 
 
