@@ -39,4 +39,10 @@ describe Word_game do
   it "makes a string of underscores of the same length as the word" do
     expect(word_game.guess_string("cupcake")).to eq '_______'
   end
+
+  it "takes the word's length and adds 3" do expect(word_game.guess_number("cupcake")).to eq 10
+  end
+
+  it "takes user's 2 input for first guess and checks if it matches the cracters in the guess word" do expect(word_game.guess_try('cupcake','u')).to eq true
+  end
 end
