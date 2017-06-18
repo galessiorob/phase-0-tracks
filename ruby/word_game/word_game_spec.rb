@@ -30,5 +30,13 @@
 require_relative 'word_game'
 
 describe Word_game do
-  let(:wordgame) { Word_game.new }
+  let(:word_game) { Word_game.new }
+
+ it "asks user 1 for a word" do
+    expect(word_game.guess_word("Cupcake")).to eq "cupcake"
+  end
+
+  it "makes a string of underscores of the same length as the word" do
+    expect(word_game.guess_string("cupcake")).to eq '_______'
+  end
 end
