@@ -28,4 +28,8 @@ function Reverse(string) {
 // Driving Code
 
 Reverse('hola');
+// => Word is too short
+
+Reverse('omakaze');
+// => ezakamo
 
