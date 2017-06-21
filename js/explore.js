@@ -8,3 +8,17 @@
 //       Re-concatenate the characters into a single string again
 //OUTPUT: Function prints the string in reverse on to the console
 
+function Reverse(string) {
+  str = string.split("");
+  console.log(str)
+
+
+}
+
+
+
+// ==============================================
+// Driving Code
+
+Reverse('hola');
+
