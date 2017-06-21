@@ -10,7 +10,12 @@
 
 function Reverse(string) {
   str = string.split("");
-  console.log(str)
+  rev_str = []
+  for (i = str.length-1; i>=0; i--) {
+  rev_str.push(str[i]);
+}
+
+  console.log(rev_str)
 
 
 }
