@@ -14,11 +14,13 @@ function Reverse(string) {
   for (i = str.length-1; i>=0; i--) {
   rev_str.push(str[i]);
 }
-
-  console.log(rev_str)
-
-
+  string = rev_str.join("");
+  if (string.length > 4) {
+  console.log(string)}
+  else {
+  console.log("Word is too short");}
 }
+
 
 
 
