@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself Gabriela, with: Daniel].
+# We spent [1:10] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # require_relative --> allows you to link local files and have access to the data, and you don't need to specify the directory
@@ -25,7 +25,7 @@ class VirusPredictor
       speed_of_spread
   end
 
-#TBD
+#Prevents users from calling the protected methods on instances, aka it restrains visibility
   private
 
 #Calculates deaths depending on population density
@@ -87,3 +87,26 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+#Each "hash level" uses a different sytax, the first two levels use an 'older' or original syntax of string and hash rockets, while the inner hash uses the ':' to make symbols and asign the values.
+
+# What does require_relative do? How is it different from require?
+# require_relative --> allows you to link local files and have access to the data, and you don't need to specify the directory
+# require --> allows you to access to data in a file, but you have to specify the path
+
+# What are some ways to iterate through a hash?
+#There are many different ways:
+  #.each do |key, value| ... end
+  #.each_key do |key| ... end
+  #.each_value do |value|... end
+  #.map {|key, value|} ... end
+  #.each_pair do |key, value| ... end
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# Since they're instance variables, they don't need to be passed to methods contained in the class because they're visible and available already, so there's no need for the virus_effects to take arguments
+
+# What concept did you most solidify in this challenge?
+#Instance variables
+#Using hashes to structure and store data in an odered way
+#Calling instances on classes
