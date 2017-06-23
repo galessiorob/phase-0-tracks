@@ -72,3 +72,8 @@ function MatchFinder (one,two) {
 
 // longphrasetoo = new LongestPhrase(animals
 // // =>hippopotamus
+
+ONE = {name: "Steven", age: 54};
+TWO = {name: "Tamir", age: 54};
+
+test = new MatchFinder(ONE,TWO)
