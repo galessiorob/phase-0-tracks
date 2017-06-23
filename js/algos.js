@@ -66,29 +66,27 @@ function MatchFinder (one,two) {
 
 // Release 2
 
-function DataGenerator (nitems) {
+function DataGenerator(nitems) {
+  var words = [];
+  var word;
   this.nitems = nitems;
-  var array =[];
-  var str_lgth = Array.from(new Array(11), (x,i) => i);
-  var str_chars = ('a','c')
-  for (var i = 0; i <= nitems; i++) {
-    array.push()
-  }
-  console.log(str_lgth)
-}
-
-var array = 'abcdefghijklmnopqrstuvwxyz'.split('');
-function shuffle(a) {
+function shuffle() {
+  var array = 'abcdefghijklmnopqrstuvwxyz'.split('');
   var str_lgth = Math.floor(Math.random() * 10) + 1;
     for (let i = str_lgth + 1; i; i--) {
-        let j = Math.floor(Math.random() * i);
-        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+        let n = Math.floor(Math.random() * i);
+        [array[i - 1], array[n]] = [array[n], array[i - 1]];
     }
     letters = (array.slice(0, str_lgth));
     var word = letters.join("");
     console.log(word)
 }
-shuffle(array)
+
+for (let i = 0; i <= nitems-1; i++) {
+  words.push(shuffle());
+}
+}
+
 
 // =======================================
 
@@ -105,16 +103,20 @@ shuffle(array)
 
 // Release 1
 
-ONE = {name: "Steven", age: 54};
-TWO = {name: "Tamir", age: 54};
-THREE = {name: "Jason", country: "Panama"}
-FOUR = {animal: "elephant", color:"slate", legs: 4}
+// ONE = {name: "Steven", age: 54};
+// TWO = {name: "Tamir", age: 54};
+// THREE = {name: "Jason", country: "Panama"}
+// FOUR = {animal: "elephant", color:"slate", legs: 4}
 
-pairs_a = new MatchFinder(ONE,TWO)
-// => true
+// pairs_a = new MatchFinder(ONE,TWO)
+// // => true
 
-pairs_b = new MatchFinder(ONE,THREE)
-// => true
+// pairs_b = new MatchFinder(ONE,THREE)
+// // => true
 
-pairs_c = new MatchFinder(THREE,FOUR)
-// => false
+// pairs_c = new MatchFinder(THREE,FOUR)
+// // => false
+
+// Release 2
+
+g = new DataGenerator(7)
