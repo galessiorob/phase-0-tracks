@@ -16,8 +16,10 @@
 // Release 2: Generate Random Test Data
 
 // Input: Function takes an integer (x) as its sole argument
-// Steps: Function generates the number of strings requested in the argument (input)
-//    Each word will be built with an assortment of random letters and will have a random length from 1 to 10 characters
+// Steps: Function 'builds' this string output 'x' times:
+//  Length is randomly defined
+//  An ABC array is shuffled and the 'length'  of elements from the previous step are selected from this shuffled array by 'slicing' the head.
+//  Each new string created this way is pushed into an array of strings.
 // Output: An array of x strings, of random composition and length
  // ========================================
 
