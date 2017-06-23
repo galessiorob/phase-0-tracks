@@ -77,6 +77,19 @@ function DataGenerator (nitems) {
   console.log(str_lgth)
 }
 
+var array = 'abcdefghijklmnopqrstuvwxyz'.split('');
+function shuffle(a) {
+  var str_lgth = Math.floor(Math.random() * 10) + 1;
+    for (let i = str_lgth + 1; i; i--) {
+        let j = Math.floor(Math.random() * i);
+        [a[i - 1], a[j]] = [a[j], a[i - 1]];
+    }
+    letters = (array.slice(0, str_lgth));
+    var word = letters.join("");
+    console.log(word)
+}
+shuffle(array)
+
 // =======================================
 
 // Release 0
