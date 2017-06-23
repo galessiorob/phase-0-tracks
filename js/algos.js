@@ -36,8 +36,6 @@ function MatchFinder (one,two) {
   var two_l = 0;
   var matches = [];
   var common = false;
-  console.log(one_s);
-  console.log(two_s);
 
   while (one_l < one_s.length
         && two_l < two_s.length) {
@@ -50,19 +48,19 @@ function MatchFinder (one,two) {
             one_l++;
           }
           else {
-            b_l++;
+            two_l++;
           }
         }
  if (matches.length > 0){
    common = true;
  }
-// return matches;
  console.log(common)
 }
 
 
 // =======================================
 
+// Release 0
 // arr = ["long phrase","mini phrase","longest phrase","an even longer phrase","longer phrase"]
 
 // animals = ["dog","horse","hippopotamus"]
@@ -73,7 +71,18 @@ function MatchFinder (one,two) {
 // longphrasetoo = new LongestPhrase(animals
 // // =>hippopotamus
 
+// Release 1
+
 ONE = {name: "Steven", age: 54};
 TWO = {name: "Tamir", age: 54};
+THREE = {name: "Jason", country: "Panama"}
+FOUR = {animal: "elephant", color:"slate"}
 
-test = new MatchFinder(ONE,TWO)
+pairs_a = new MatchFinder(ONE,TWO)
+// => true
+
+pairs_b = new MatchFinder(ONE,THREE)
+// => true
+
+pairs_c = new MatchFinder(THREE,FOUR)
+// => false
