@@ -79,12 +79,13 @@ function shuffle() {
     }
     letters = (array.slice(0, str_lgth));
     var word = letters.join("");
-    console.log(word)
+    words.push(word)
 }
 
 for (let i = 0; i <= nitems-1; i++) {
-  words.push(shuffle());
+  shuffle();
 }
+  console.log(words)
 }
 
 
@@ -119,4 +120,4 @@ for (let i = 0; i <= nitems-1; i++) {
 
 // Release 2
 
-g = new DataGenerator(7)
+new_data = new DataGenerator(7)
