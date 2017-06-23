@@ -120,8 +120,15 @@ for (let i = 0; i <= nitems-1; i++) {
 
 // Release 2
 
-new_data = new DataGenerator(7)
-// =>[ 'bechgaif', 'b', 'b', 'a', 'dcfghba', 'fbgcdieh', 'adb' ]
+// new_data = new DataGenerator(7)
+// // =>[ 'bechgaif', 'b', 'b', 'a', 'dcfghba', 'fbgcdieh', 'adb' ]
 
-new_datab = new DataGenerator(3)
-// =>[ 'dceiabhg', 'bc', 'ebhfadc' ]
+// new_datab = new DataGenerator(3)
+// // =>[ 'dceiabhg', 'bc', 'ebhfadc' ]
+
+
+n = 10
+for (i = 0; i <= n-1; i++) {
+  new_array = new DataGenerator(n);
+  l_phrase = new LongestPhrase(new_array);
+}
