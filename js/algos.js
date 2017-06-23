@@ -64,6 +64,18 @@ function MatchFinder (one,two) {
  console.log(common)
 }
 
+// Release 2
+
+function DataGenerator (nitems) {
+  this.nitems = nitems;
+  var array =[];
+  var str_lgth = Array.from(new Array(11), (x,i) => i);
+  var str_chars = ('a','c')
+  for (var i = 0; i <= nitems; i++) {
+    array.push()
+  }
+  console.log(str_lgth)
+}
 
 // =======================================
 
