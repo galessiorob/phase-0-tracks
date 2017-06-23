@@ -76,7 +76,7 @@ function MatchFinder (one,two) {
 ONE = {name: "Steven", age: 54};
 TWO = {name: "Tamir", age: 54};
 THREE = {name: "Jason", country: "Panama"}
-FOUR = {animal: "elephant", color:"slate"}
+FOUR = {animal: "elephant", color:"slate", legs: 4}
 
 pairs_a = new MatchFinder(ONE,TWO)
 // => true
