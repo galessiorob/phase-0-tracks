@@ -12,6 +12,13 @@
 // Input: Two objects with several key-value pairs
 // Steps: Check if the objects have at least one key-value pair in common, if so return true, if not false
 // Output: True, if there's a match between the two objects, false if not
+
+// Release 2: Generate Random Test Data
+
+// Input: Function takes an integer (x) as its sole argument
+// Steps: Function generates the number of strings requested in the argument (input)
+//    Each word will be built with an assortment of random letters and will have a random length from 1 to 10 characters
+// Output: An array of x strings, of random composition and length
  // ========================================
 
 function LongestPhrase(array) {
