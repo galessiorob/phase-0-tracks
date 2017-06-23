@@ -140,6 +140,7 @@ for (let i = 0; i <= n-1; i++) {
   l_phrase = new LongestPhrase(new_array);
 }
 
+// 10 of these as output:
 // => [ 'a',
 //   'cfdbeg',
 //   'bfhdaeic',
@@ -151,3 +152,4 @@ for (let i = 0; i <= n-1; i++) {
 //   'geifabdh',
 //   'fadbejchg' ]
 // the longest phrase is 'fadbejchg'
+
