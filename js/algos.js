@@ -121,3 +121,7 @@ for (let i = 0; i <= nitems-1; i++) {
 // Release 2
 
 new_data = new DataGenerator(7)
+// =>[ 'bechgaif', 'b', 'b', 'a', 'dcfghba', 'fbgcdieh', 'adb' ]
+
+new_datab = new DataGenerator(3)
+// =>[ 'dceiabhg', 'bc', 'ebhfadc' ]
