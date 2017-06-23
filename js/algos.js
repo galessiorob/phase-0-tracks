@@ -21,17 +21,20 @@
 // Output: An array of x strings, of random composition and length
  // ========================================
 
+var longest;
+var word;
+var words;
+
 function LongestPhrase(array) {
   this.array = array;
-  this.longest;
   lgth = 0;
   for(i = 0; i < array.length; i++) {
     if(array[i].length > lgth){
       lgth = array[i].length;
-      longest = array[i];
+      longest = array[i]
     }
   }
-  console.log(longest);
+  console.log("the longest phrase is '" + longest +"'");
 }
 
 function MatchFinder (one,two) {
@@ -79,56 +82,70 @@ function shuffle() {
     }
     letters = (array.slice(0, str_lgth));
     var word = letters.join("");
-    words.push(word)
+    words.push(word);
 }
 
 for (let i = 0; i <= nitems-1; i++) {
   shuffle();
 }
-  console.log(words)
+console.log(words)
+return(words);
 }
 
 
 // =======================================
 
 // Release 0
-// arr = ["long phrase","mini phrase","longest phrase","an even longer phrase","longer phrase"]
+arr = ["long phrase","mini phrase","longest phrase","an even longer phrase","longer phrase"]
 
-// animals = ["dog","horse","hippopotamus"]
+animals = ["dog","horse","hippopotamus"]
 
-// longphrase = new LongestPhrase(arr)
-// // => an even longer phrase
+longphrase = new LongestPhrase(arr)
+// => an even longer phrase
 
-// longphrasetoo = new LongestPhrase(animals
-// // =>hippopotamus
+longphrasetoo = new LongestPhrase(animals)
+// =>hippopotamus
 
 // Release 1
 
-// ONE = {name: "Steven", age: 54};
-// TWO = {name: "Tamir", age: 54};
-// THREE = {name: "Jason", country: "Panama"}
-// FOUR = {animal: "elephant", color:"slate", legs: 4}
+ONE = {name: "Steven", age: 54};
+TWO = {name: "Tamir", age: 54};
+THREE = {name: "Jason", country: "Panama"}
+FOUR = {animal: "elephant", color:"slate", legs: 4}
 
-// pairs_a = new MatchFinder(ONE,TWO)
-// // => true
+pairs_a = new MatchFinder(ONE,TWO)
+// => true
 
-// pairs_b = new MatchFinder(ONE,THREE)
-// // => true
+pairs_b = new MatchFinder(ONE,THREE)
+// => true
 
-// pairs_c = new MatchFinder(THREE,FOUR)
-// // => false
+pairs_c = new MatchFinder(THREE,FOUR)
+// => false
 
 // Release 2
 
-// new_data = new DataGenerator(7)
-// // =>[ 'bechgaif', 'b', 'b', 'a', 'dcfghba', 'fbgcdieh', 'adb' ]
+new_data = new DataGenerator(7)
+// =>[ 'bechgaif', 'b', 'b', 'a', 'dcfghba', 'fbgcdieh', 'adb' ]
 
-// new_datab = new DataGenerator(3)
-// // =>[ 'dceiabhg', 'bc', 'ebhfadc' ]
+new_datab = new DataGenerator(3)
+// =>[ 'dceiabhg', 'bc', 'ebhfadc' ]
 
+// Driver code to 10 times: generate an array and feed to longest phrase function
 
 n = 10
-for (i = 0; i <= n-1; i++) {
+for (let i = 0; i <= n-1; i++) {
   new_array = new DataGenerator(n);
   l_phrase = new LongestPhrase(new_array);
 }
+
+// => [ 'a',
+//   'cfdbeg',
+//   'bfhdaeic',
+//   'cdgbea',
+//   'b',
+//   'achdbfe',
+//   'fcabe',
+//   'dbc',
+//   'geifabdh',
+//   'fadbejchg' ]
+// the longest phrase is 'fadbejchg'
