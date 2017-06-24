@@ -89,6 +89,19 @@ end
 
 #==================================================
 
-vampire = Vampires.new
-vampire.user_info
-vampire.vampire_flow
+puts "How many employees do you want to process?"
+employees = gets.chomp.to_i
+
+i = 0
+until i == employees
+  puts "Processing employee #{i+1}"
+  vampire = Vampires.new
+  vampire.user_info
+  vampire.vampire_flow
+  i+=1
+end
+
+
+# vampire = Vampires.new
+# vampire.user_info
+# vampire.vampire_flow
