@@ -42,17 +42,14 @@ class Vampires
         @garlic_bread = (gets.chomp).downcase
     end
 
-    # while @garlic_bread = (gets.chomp).downcase
-    #   case @garlic_bread
-    #   when ('n'||'y')
-    #     break
-    #   else
-    #     puts "Please use 'Y' or 'N'"
-    #   end
-    # end
-
     puts "Would you like to enroll in the company’s health insurance? Answer 'Y' or 'N'"
-    @insurance = (gets.chomp).downcase
+    @insurance = nil
+    until ['n','y','Y','N'].include? @insurance do
+        puts "Please use 'Y' or 'N'"
+        @insurance = (gets.chomp).downcase
+    end
+
+
   end
 
 end
