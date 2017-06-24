@@ -17,24 +17,48 @@
 class Vampires
 
   def initialize
-    @name = name
-    @age = age
-    @year = year
-    @garlic_bread = garlic_bread
-    @insurance = insurance
+    @name
+    @age
+    @year
+    @garlic_bread
+    @insurance
     @is_vampire = false
   end
 
-  def user_info(name, age, year, garlic_bread, insurance)
+  def user_info
     puts "What's your name?"
     @name = gets.chomp
+
     puts "How old are you? in years"
     @age = (gets.chomp).to_i
+
     puts "What year where you born? In number"
     @year = (gets.chomp).to_i
-    puts "Our company cafeteria serves garlic bread. Should we order some for you? Aswer 'Y' or 'N'"
-    @garlic_bread = (gets.chomp)
+
+    puts "Our company cafeteria serves garlic bread. Should we order some for you? Answer 'Y' or 'N'"
+    @garlic_bread = nil
+    until ['n','y','Y','N'].include? @garlic_bread do
+        puts "Please use 'Y' or 'N'"
+        @garlic_bread = (gets.chomp).downcase
+    end
+
+    # while @garlic_bread = (gets.chomp).downcase
+    #   case @garlic_bread
+    #   when ('n'||'y')
+    #     break
+    #   else
+    #     puts "Please use 'Y' or 'N'"
+    #   end
+    # end
+
+    puts "Would you like to enroll in the company’s health insurance? Answer 'Y' or 'N'"
+    @insurance = (gets.chomp).downcase
   end
 
 end
 
+
+#==================================================
+
+vampire = Vampires.new
+vampire.user_info
