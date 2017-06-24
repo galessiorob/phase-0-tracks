@@ -20,6 +20,8 @@ class Vampires
     @name
     @age
     @year
+    @current_year = Time.new.year
+    @age_check
     @garlic_bread
     @insurance
     @is_vampire = false
@@ -34,6 +36,12 @@ class Vampires
 
     puts "What year where you born? In number"
     @year = (gets.chomp).to_i
+
+    if (@current_year - @age == @year ) || (@current_year - (@age + 1) == @year)
+      p @age_check = true
+    else
+      p @age_check = false
+    end
 
     puts "Our company cafeteria serves garlic bread. Should we order some for you? Answer 'Y' or 'N'"
     @garlic_bread = nil
