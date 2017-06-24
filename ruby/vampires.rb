@@ -13,7 +13,7 @@
 
 
 #=================================================
-
+#Using *true* evaluations for VAMPIRES and *false* for non-vampire behaviors, aka getting age right evaluates to false for non-vampires
 class Vampires
 
   def initialize
@@ -38,9 +38,9 @@ class Vampires
     @year = (gets.chomp).to_i
 
     if (@current_year - @age == @year ) || (@current_year - (@age + 1) == @year)
-      p @age_check = true
-    else
       p @age_check = false
+    else
+      p @age_check = true
     end
 
     puts "Our company cafeteria serves garlic bread. Should we order some for you? Answer 'Y' or 'N'"
@@ -70,6 +70,18 @@ class Vampires
 
   def vampire_flow
 
+    if ['Drake Cula','Tu Fang'].include? @name
+      puts "Definitely a vampire"
+    elsif @age_check && (@garlic_check || @insurance_check)
+      puts "Probably not a vampire"
+    elsif !@age_check && (@garlic_check || @insurance_check)
+      puts "Probably a vampire"
+    elsif !@age_check && (@garlic_check && @insurance_check)
+      puts "Almost certainly a vampire"
+    else
+      puts "Results inconclusive"
+    end
+
   end
 
 end
@@ -79,3 +91,4 @@ end
 
 vampire = Vampires.new
 vampire.user_info
+vampire.vampire_flow
