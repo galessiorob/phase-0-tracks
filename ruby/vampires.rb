@@ -49,6 +49,11 @@ class Vampires
         puts "Please use 'Y' or 'N'"
         @garlic_bread = (gets.chomp).downcase
     end
+    if ['n','N'].include? @garlic_bread
+      p @garlic_check = true
+    else
+      p @garlic_check = false
+    end
 
     puts "Would you like to enroll in the company’s health insurance? Answer 'Y' or 'N'"
     @insurance = nil
@@ -56,7 +61,14 @@ class Vampires
         puts "Please use 'Y' or 'N'"
         @insurance = (gets.chomp).downcase
     end
+    if ['n','N'].include? @insurance
+      p @insurance_check = true
+    else
+      p @insurance_check = false
+    end
+  end
 
+  def vampire_flow
 
   end
 
