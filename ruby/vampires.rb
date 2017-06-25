@@ -1,6 +1,8 @@
 #Week 4 Control Flow Practice
 #Interview with the Vampire
 
+#Refactored code, original included at the end
+
 #Pseudocode
 #Input: Employee to answer following questions:
 #       -What's you name?
@@ -117,7 +119,4 @@ until i == employees
   i+=1
 end
 
-
-# vampire = Vampires.new
-# vampire.user_info
-# vampire.vampire_flow
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
