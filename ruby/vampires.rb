@@ -24,6 +24,7 @@ class Vampires
     @age_check
     @garlic_bread
     @insurance
+    @allergies = []
     @is_vampire = false
   end
 
@@ -66,12 +67,28 @@ class Vampires
     else
       p @insurance_check = false
     end
+
+    puts "Please name your allergies, one at a time and type 'done' when finished:"
+    @user_allergy = nil
+    @sunshine_check = false
+
+      until @user_allergy == 'done'
+        @user_allergy = (gets.chomp).downcase
+        @allergies << @user_allergy
+        if @allergies.include? "sunshine"
+          @sunshine_check = true
+          break
+        else
+        end
+    end
   end
 
   def vampire_flow
 
     if ['Drake Cula','Tu Fang'].include? @name
       puts "Definitely a vampire"
+    elsif @sunshine_check
+      puts "Probably a vampire"
     elsif @age_check && (@garlic_check || @insurance_check)
       puts "Probably not a vampire"
     elsif !@age_check && (@garlic_check || @insurance_check)
@@ -81,7 +98,6 @@ class Vampires
     else
       puts "Results inconclusive"
     end
-
   end
 
 end
