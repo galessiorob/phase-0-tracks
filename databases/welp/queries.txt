@@ -1,0 +1,46 @@
+
+2. Join 3 tables:
+
+SELECT *
+FROM
+users AS u
+INNER JOIN reviews AS r
+ON u.id = r.user_id
+INNER JOIN businesses AS b
+ON b.id = r.business_id;
+
+=> 1|Bradford|Pitt|1|5|Great venue for my BF's wedding!|1|1|1|Grundy Hollow Wedding Chapel
+3|Angela|Jolie|2|3|Could have had better service|2|3|2|Amir's Towing
+4|Steven|Wonder|3|2|Worst service ever|3|4|3|The Beagle Nightclub
+
+3. Select only some columns:
+
+SELECT 
+u.first_name, u.last_name,
+r.stars, r.comment,
+b.name
+FROM
+users AS u
+INNER JOIN reviews AS r
+ON u.id = r.user_id
+INNER JOIN businesses AS b
+ON b.id = r.business_id;
+
+=> Bradford|Pitt|5|Great venue for my BF's wedding!|Grundy Hollow Wedding Chapel
+Angela|Jolie|3|Could have had better service|Amir's Towing
+Steven|Wonder|2|Worst service ever|The Beagle Nightclub
+
+4. Select an individual business:
+SELECT 
+u.first_name, u.last_name,
+r.stars, r.comment,
+b.name
+FROM
+users AS u
+INNER JOIN reviews AS r
+ON u.id = r.user_id
+INNER JOIN businesses AS b
+ON b.id = r.business_id
+WHERE b.name = "The Beagle Nightclub";
+
+=> Steven|Wonder|2|Worst service ever|The Beagle Nightclub
