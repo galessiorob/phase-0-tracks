@@ -13,3 +13,22 @@ require 'faker'
 #Create SQLite3 database
 db = SQLite3::Database.new("activities.db")
 db.results_as_hash = true
+
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS activities(
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    age INT,
+    activity_type VARCHAR(255),
+    miles INT,
+    time INT,
+    professional BOOLEAN
+  )
+SQL
+
+#Create activities table
+db.execute(create_table_cmd)
+
+#Add a test activity
+# db.execute("INSERT INTO kittens (name, age) VALUES ('Bob', 10)")
