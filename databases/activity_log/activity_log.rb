@@ -4,3 +4,12 @@
 #Input: user types in name, activity type, miles and time
 #Steps: program takes in the users information and stores it as an individual row in a previously created database that collects activity logs from users
 #Output: user's activity gets logged and ranked by activity type and time
+
+#=========================================
+
+require 'sqlite3'
+require 'faker'
+
+#Create SQLite3 database
+db = SQLite3::Database.new("activities.db")
+db.results_as_hash = true
