@@ -1,0 +1,86 @@
+<!-- Release 2: Execute SQL Queries -->
+
+<!-- 1. Display the information in one table (either table is fine). --> 
+SELECT * FROM artworks;
+
+=>1|Paris Street, Rainy Day|oil on canvas|1877|true|1
+2|Bal du moulin de la Galette|oil on canvas|1876|true|2
+3|Luncheon of the Boating Party|oil on canvas and pastels|1881|false|2
+4|The Starry Night|oil on canvas|1889|true|3
+5|A holiday in Mentone|oil on canvas|1888|false|4
+
+<!-- 2. Update an item that meets some condition (you can choose a condition that makes sense). -->
+UPDATE artworks SET in_exhibit="true" WHERE title="Luncheon of the Boating Party";
+<!-- Check if value was updated -->
+SELECT * FROM artworks WHERE title="Luncheon of the Boating Party";
+=> 3|Luncheon of the Boating Party|oil on canvas and pastels|1881|true|2
+
+<!-- 3. Display the information in both tables using one query. -->
+SELECT * FROM artworks JOIN authors ON artworks.author_id = authors.id;
+
+=> 1|Paris Street, Rainy Day|oil on canvas|1877|true|1|1|Gustave Calleibote|French|1848|1894
+2|Bal du moulin de la Galette|oil on canvas|1876|true|2|2|Pierre-Auguste Renoir|French|1841|1919
+3|Luncheon of the Boating Party|oil on canvas and pastels|1881|true|2|2|Pierre-Auguste Renoir|French|1841|1919
+4|The Starry Night|oil on canvas|1889|true|3|3|Vincent Van Gogh|Dutch|1853|1890
+5|A holiday in Mentone|oil on canvas|1888|false|4|4|Charles Conder|English|1868|1909
+
+<!-- 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query. -->
+SELECT a.author_name, w.title, w.date, w.in_exhibit
+FROM artworks w, authors a
+WHERE w.author_id = a.id
+ORDER BY w.date;
+
+=> Pierre-Auguste Renoir|Bal du moulin de la Galette|1876|true
+Gustave Calleibote|Paris Street, Rainy Day|1877|true
+Pierre-Auguste Renoir|Luncheon of the Boating Party|1881|true
+Charles Conder|A holiday in Mentone|1888|false
+Vincent Van Gogh|The Starry Night|1889|true
+
+<!-- 5. Delete an item that meets some condition (you can choose a condition that makes sense). -->
+
+DELETE * FROM artworks
+WHERE in_exhibit = false;
+
+<!-- To check: -->
+SELECT * FROM artworks;
+
+=> 1|Paris Street, Rainy Day|oil on canvas|1877|true|1
+2|Bal du moulin de la Galette|oil on canvas|1876|true|2
+3|Luncheon of the Boating Party|oil on canvas and pastels|1881|true|2
+4|The Starry Night|oil on canvas|1889|true|3
+
+<!-- Release 3: Join examples -->
+
+<!-- 2. Triying different joins -->
+
+<!-- Left Join: -->
+SELECT * FROM artworks 
+JOIN authors ON artworks.author_id = authors.id;
+
+=> 1|Paris Street, Rainy Day|oil on canvas|1877|true|1|1|Gustave Calleibote|French|1848|1894
+2|Bal du moulin de la Galette|oil on canvas|1876|true|2|2|Pierre-Auguste Renoir|French|1841|1919
+3|Luncheon of the Boating Party|oil on canvas and pastels|1881|true|2|2|Pierre-Auguste Renoir|French|1841|1919
+4|The Starry Night|oil on canvas|1889|true|3|3|Vincent Van Gogh|Dutch|1853|1890
+
+<!--Inner Join -->
+SELECT authors.author_name, artworks.title, artworks.date
+FROM authors
+INNER JOIN artworks ON authors.id = artworks.author_id;
+
+=> Gustave Calleibote|Paris Street, Rainy Day|1877
+Pierre-Auguste Renoir|Bal du moulin de la Galette|1876
+Pierre-Auguste Renoir|Luncheon of the Boating Party|1881
+Vincent Van Gogh|The Starry Night|1889
+
+<!-- Left Join -->
+SELECT artworks.title, authors.author_name, artworks.date, artworks.in_exhibit
+FROM artworks
+LEFT JOIN authors ON artworks.author_id = authors.id
+ORDER BY artworks.date; 
+
+=> Bal du moulin de la Galette|Pierre-Auguste Renoir|1876|true
+Paris Street, Rainy Day|Gustave Calleibote|1877|true
+Luncheon of the Boating Party|Pierre-Auguste Renoir|1881|true
+The Starry Night|Vincent Van Gogh|1889|true
+
+<!-- Right and Full Outer Joins are not supported on sql3lite -->
