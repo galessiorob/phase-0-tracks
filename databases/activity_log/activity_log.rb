@@ -31,9 +31,15 @@ SQL
 db.execute(create_table_cmd)
 
 #Add a test activity
-db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
+# db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
 
-activities = db.execute("SELECT * FROM activities")
-activities.each do |activity|
- puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']}"
+def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
+  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
 end
+
+
+
+# activities = db.execute("SELECT * FROM activities")
+# activities.each do |activity|
+#  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']}"
+# end
