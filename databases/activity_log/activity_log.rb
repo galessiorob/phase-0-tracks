@@ -68,5 +68,5 @@ create_activity(db)
 
 activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
- puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']}"
+ puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
 end
