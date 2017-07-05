@@ -33,15 +33,25 @@ db.execute(create_table_cmd)
 #Add a test activity
 # db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
 
+#======WORKING METHOD ===================
 # def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
 #   db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
 # end
 
-def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
-  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
+#===========================================
+
+def create_activity(db, activity_type, miles, time, professional)
+  puts "What's your name?"
+  @first_name = gets.chomp
+  puts "What's your last name?"
+  @last_name = gets.chomp
+  puts "What's your age?"
+  @age = gets.chomp.to_i
+  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, activity_type, miles, time, professional])
 end
 
-create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
+# create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
+create_activity(db, "Swimming", 3, 68, "true")
 
 activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
