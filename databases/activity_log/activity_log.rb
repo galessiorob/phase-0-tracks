@@ -21,8 +21,8 @@ create_table_cmd = <<-SQL
     last_name VARCHAR(255),
     age INT,
     activity_type VARCHAR(255),
-    miles INT,
-    time INT,
+    miles FLOAT,
+    time TIME,
     professional BOOLEAN
   )
 SQL
@@ -40,18 +40,31 @@ db.execute(create_table_cmd)
 
 #===========================================
 
-def create_activity(db, activity_type, miles, time, professional)
+def create_activity(db)
   puts "What's your name?"
-  @first_name = gets.chomp
+  @first_name = gets.chomp.capitalize
   puts "What's your last name?"
-  @last_name = gets.chomp
+  @last_name = gets.chomp.capitalize
   puts "What's your age?"
   @age = gets.chomp.to_i
-  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, activity_type, miles, time, professional])
+  puts "What type of activity do you want to log?"
+  @activity_type = gets.chomp.downcase
+  puts "How many miles did you go?"
+  @miles = gets.chomp.to_f
+  puts "How much time did it take you? In minutes"
+  @time = gets.chomp.to_f
+  puts "Are you a professional athlete? Yes or no?"
+  prof_athlete = gets.chomp.downcase
+    if prof_athlete == "yes"
+      @professional = "true"
+    else
+      @professional = "false"
+    end
+  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
 end
 
 # create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
-create_activity(db, "Swimming", 3, 68, "true")
+create_activity(db)
 
 activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
