@@ -33,13 +33,17 @@ db.execute(create_table_cmd)
 #Add a test activity
 # db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
 
+# def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
+#   db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
+# end
+
 def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
-  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
+  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
 end
 
+create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
 
-
-# activities = db.execute("SELECT * FROM activities")
-# activities.each do |activity|
-#  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']}"
-# end
+activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
+activities.each do |activity|
+ puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']}"
+end
