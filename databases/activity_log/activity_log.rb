@@ -11,8 +11,8 @@ require 'sqlite3'
 require 'faker'
 
 #Create SQLite3 database
-db = SQLite3::Database.new("activities.db")
-db.results_as_hash = true
+$db = SQLite3::Database.new("activities.db")
+$db.results_as_hash = true
 
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS activities(
@@ -28,7 +28,7 @@ create_table_cmd = <<-SQL
 SQL
 
 #Create activities table
-db.execute(create_table_cmd)
+$db.execute(create_table_cmd)
 
 #Add a test activity
 # db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
@@ -60,7 +60,7 @@ def create_activity(db)
     else
       @professional = "false"
     end
-  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
+  $db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
 end
 
 def lookup_activity
@@ -68,7 +68,7 @@ def lookup_activity
   @first_name = gets.chomp.capitalize
   puts "Please type her/his last name: "
   @last_name = gets.chomp.capitalize
-    db.execute("SELECT * FROM activities")
+    $db.execute("SELECT * FROM activities")
   end
 
 
@@ -78,7 +78,7 @@ puts "1. Log and activity"
 puts "2. Lookup my (or a friends) activities"
   @menu_select = gets.chomp.to_i
     if @menu_select = 1
-      create_activity(db)
+      create_activity($db)
     else
       lookup_activity
     end
@@ -95,7 +95,7 @@ menu
 
 #create_activity(db)
 
-activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
+activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
 end
