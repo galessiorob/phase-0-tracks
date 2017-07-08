@@ -63,8 +63,37 @@ def create_activity(db)
   db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
 end
 
+def lookup_activity
+  puts "Please type the first name of the person you want to look up:"
+  @first_name = gets.chomp.capitalize
+  puts "Please type her/his last name: "
+  @last_name = gets.chomp.capitalize
+    db.execute("SELECT * FROM activities")
+  end
+
+
+def menu
+puts "Please type the number what you'd like to do:"
+puts "1. Log and activity"
+puts "2. Lookup my (or a friends) activities"
+  @menu_select = gets.chomp.to_i
+    if @menu_select = 1
+      create_activity(db)
+    else
+      lookup_activity
+    end
+  end
+
 # create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
-create_activity(db)
+
+puts "Hi! Welcome to B U S T L E!"
+puts
+puts "BUSTLE lets you log any type of exercise or activity and calculate your speed."
+
+
+menu
+
+#create_activity(db)
 
 activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
