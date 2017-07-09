@@ -68,32 +68,35 @@ def lookup_activity
   @first_name = gets.chomp.capitalize
   puts "Please type her/his last name: "
   @last_name = gets.chomp.capitalize
-    $db.execute("SELECT * FROM activities")
+  activities_select = $db.execute("SELECT * FROM activities
+      WHERE first_name = ?",[@first_name])
+    activities_select.each do |activity|
+ puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
+end
   end
-
 
 def menu
 puts "Please type the number what you'd like to do:"
 puts "1. Log and activity"
 puts "2. Lookup my (or a friends) activities"
   @menu_select = gets.chomp.to_i
-    if @menu_select = 1
+    if @menu_select == 1
       create_activity($db)
-    else
+    elsif @menu_select ==2
       lookup_activity
+    else
+      "Those are our only two options currently. Please select 1 or 2."
     end
   end
 
-# create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
-
+#============================================
 puts "Hi! Welcome to B U S T L E!"
 puts
 puts "BUSTLE lets you log any type of exercise or activity and calculate your speed."
 
-
 menu
 
-#create_activity(db)
+
 
 activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
 activities.each do |activity|
