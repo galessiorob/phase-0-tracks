@@ -69,7 +69,7 @@ def lookup_activity
   puts "Please type her/his last name: "
   @last_name = gets.chomp.capitalize
   activities_select = $db.execute("SELECT * FROM activities
-      WHERE first_name = ?",[@first_name])
+      WHERE first_name = ? AND last_name = ?",[@first_name, @last_name])
     activities_select.each do |activity|
  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
 end
@@ -98,7 +98,7 @@ menu
 
 
 
-activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
-activities.each do |activity|
- puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
-end
+# activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
+# activities.each do |activity|
+#  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
+# end
