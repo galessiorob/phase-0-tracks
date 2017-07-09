@@ -11,8 +11,8 @@ require 'sqlite3'
 require 'faker'
 
 #Create SQLite3 database
-db = SQLite3::Database.new("activities.db")
-db.results_as_hash = true
+$db = SQLite3::Database.new("activities.db")
+$db.results_as_hash = true
 
 create_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS activities(
@@ -28,17 +28,7 @@ create_table_cmd = <<-SQL
 SQL
 
 #Create activities table
-db.execute(create_table_cmd)
-
-#Add a test activity
-# db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
-
-#======WORKING METHOD ===================
-# def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
-#   db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
-# end
-
-#===========================================
+$db.execute(create_table_cmd)
 
 def create_activity(db)
   puts "What's your name?"
@@ -60,13 +50,58 @@ def create_activity(db)
     else
       @professional = "false"
     end
-  db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
+  $db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [@first_name, @last_name, @age, @activity_type, @miles, @time, @professional])
 end
 
-# create_activity(db,"Laura", "Clark", 27, "Cycling", 42, 180, "true")
-create_activity(db)
+def lookup_activity
+  puts "Please type the first name of the person you want to look up:"
+  @first_name = gets.chomp.capitalize
+  puts "Please type her/his last name: "
+  @last_name = gets.chomp.capitalize
+  activities_select = $db.execute("SELECT * FROM activities
+      WHERE first_name = ? AND last_name = ?",[@first_name, @last_name])
 
-activities = db.execute("SELECT * FROM activities ORDER BY activities.id")
-activities.each do |activity|
+  activities_select.each do |activity|
  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
+  end
+
+  activities_total = $db.execute("SELECT first_name, last_name, SUM(miles), activity_type FROM activities
+      WHERE first_name = ? AND last_name = ?
+      GROUP BY activity_type",[@first_name, @last_name])
+  puts "* * * * * * * * * * * * * * * * * * * *"
+ activities_total.each do |activity|
+ puts "#{activity['first_name']} #{activity['last_name']} did a total of #{activity['SUM(miles)']} miles of #{activity['activity_type']}"
+  end
 end
+
+def menu
+puts "Please type the number of what you'd like to do:"
+puts "1. Log and activity"
+puts "2. Lookup my (or a friend's) activities"
+  @menu_select = gets.chomp.to_i
+    until [1,2].include? @menu_select
+       puts "Those are our only two options currently. Please select 1 or 2."
+         @menu_select = gets.chomp.to_i
+    end
+    if @menu_select == 1
+        create_activity($db)
+      elsif @menu_select ==2
+        lookup_activity
+      else
+       puts "Those are our only two options currently. Please select 1 or 2."
+      end
+  end
+
+#============================================
+puts "Hi! Welcome to B U S T L E!"
+puts
+puts "BUSTLE lets you log any type of exercise or activity and calculate your speed."
+
+menu
+
+#To check the entire database:
+
+# activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
+# activities.each do |activity|
+#  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
+# end
