@@ -30,16 +30,6 @@ SQL
 #Create activities table
 $db.execute(create_table_cmd)
 
-#Add a test activity
-# db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES ('Gabriela', 'Alessio',30,'Running',10,110,'false')")
-
-#======WORKING METHOD ===================
-# def create_activity(db, first_name, last_name, age, activity_type, miles, time, professional)
-#   db.execute("INSERT INTO activities (first_name, last_name, age, activity_type, miles, time, professional) VALUES (?, ?, ?, ?, ?, ?, ?)", [first_name, last_name, age, activity_type, miles, time, professional])
-# end
-
-#===========================================
-
 def create_activity(db)
   puts "What's your name?"
   @first_name = gets.chomp.capitalize
@@ -89,13 +79,17 @@ puts "Please type the number of what you'd like to do:"
 puts "1. Log and activity"
 puts "2. Lookup my (or a friend's) activities"
   @menu_select = gets.chomp.to_i
-    if @menu_select == 1
-      create_activity($db)
-    elsif @menu_select ==2
-      lookup_activity
-    else
-      "Those are our only two options currently. Please select 1 or 2."
+    until [1,2].include? @menu_select
+       puts "Those are our only two options currently. Please select 1 or 2."
+         @menu_select = gets.chomp.to_i
     end
+    if @menu_select == 1
+        create_activity($db)
+      elsif @menu_select ==2
+        lookup_activity
+      else
+       puts "Those are our only two options currently. Please select 1 or 2."
+      end
   end
 
 #============================================
@@ -105,7 +99,7 @@ puts "BUSTLE lets you log any type of exercise or activity and calculate your sp
 
 menu
 
-
+#To check the entire database:
 
 # activities = $db.execute("SELECT * FROM activities ORDER BY activities.id")
 # activities.each do |activity|
