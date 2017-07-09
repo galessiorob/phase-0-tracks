@@ -70,15 +70,24 @@ def lookup_activity
   @last_name = gets.chomp.capitalize
   activities_select = $db.execute("SELECT * FROM activities
       WHERE first_name = ? AND last_name = ?",[@first_name, @last_name])
-    activities_select.each do |activity|
+
+  activities_select.each do |activity|
  puts "#{activity['first_name']} #{activity['last_name']} did #{activity['miles']} miles of #{activity['activity_type']} at #{activity['miles']/(activity['time']/60)} mph"
-end
   end
 
+  activities_total = $db.execute("SELECT first_name, last_name, SUM(miles), activity_type FROM activities
+      WHERE first_name = ? AND last_name = ?
+      GROUP BY activity_type",[@first_name, @last_name])
+  puts "* * * * * * * * * * * * * * * * * * * *"
+ activities_total.each do |activity|
+ puts "#{activity['first_name']} #{activity['last_name']} did a total of #{activity['SUM(miles)']} miles of #{activity['activity_type']}"
+  end
+end
+
 def menu
-puts "Please type the number what you'd like to do:"
+puts "Please type the number of what you'd like to do:"
 puts "1. Log and activity"
-puts "2. Lookup my (or a friends) activities"
+puts "2. Lookup my (or a friend's) activities"
   @menu_select = gets.chomp.to_i
     if @menu_select == 1
       create_activity($db)
