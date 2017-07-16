@@ -4,7 +4,7 @@
   margin: 0px auto;
   padding: 0px;
   border:0;
-  width: 960px;
+  width: 980px;
   background: rgb(204, 228, 223);
   color: rgb(24, 55, 76);
   font-size: 1.3em;
@@ -62,5 +62,5 @@ width: 50%;
 }
 
 #honestly {
-  font-size: .7em;
+  font-size: .6em;
 }
